@@ -1,0 +1,6 @@
+{
+  "name": "Minimalist Todo",
+  "description": "A minimalist productivity-focused todo application with Google OAuth authentication, Supabase PostgreSQL database sync, dark mode support, and keyboard shortcuts.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
