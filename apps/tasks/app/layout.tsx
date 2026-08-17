@@ -9,13 +9,13 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Tasks — Minimalist Todo",
-  description: "A clean, distraction-free todo app built for focus.",
+  description: "A calm, distraction-free todo app built for focus.",
 };
 
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0a0a0a" },
+    { media: "(prefers-color-scheme: dark)", color: "#09090b" },
   ],
 };
 
