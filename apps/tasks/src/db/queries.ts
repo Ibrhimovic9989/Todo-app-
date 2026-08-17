@@ -6,20 +6,14 @@ export type Todo = {
   id: string;
   text: string;
   completed: boolean;
-  createdAt: Date;
+  createdAt: number;
 };
 
 export async function getTodos(userId: string): Promise<Todo[]> {
-  const rows = await db.query.todos.findMany({
+  return db.query.todos.findMany({
     where: eq(todos.userId, userId),
     orderBy: (t, { desc }) => desc(t.createdAt),
   });
-  return rows.map((r) => ({
-    id: r.id,
-    text: r.text,
-    completed: r.completed,
-    createdAt: r.createdAt,
-  }));
 }
 
 export async function createTodo(userId: string, text: string): Promise<Todo> {
@@ -27,13 +21,7 @@ export async function createTodo(userId: string, text: string): Promise<Todo> {
     .insert(todos)
     .values({ userId, text, completed: false })
     .returning();
-  const r = rows[0];
-  return {
-    id: r.id,
-    text: r.text,
-    completed: r.completed,
-    createdAt: r.createdAt,
-  };
+  return rows[0];
 }
 
 export async function updateTodoStatus(

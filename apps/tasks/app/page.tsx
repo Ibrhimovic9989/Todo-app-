@@ -35,7 +35,7 @@ export default async function Home() {
 
   const initial = (await getTodos(userId)).map((t) => ({
     ...t,
-    createdAt: t.createdAt.toISOString(),
+    createdAt: String(t.createdAt),
   }));
 
   return (

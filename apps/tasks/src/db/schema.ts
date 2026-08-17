@@ -1,11 +1,12 @@
-import { pgTable, uuid, text, boolean, timestamp } from "drizzle-orm/pg-core";
+import { randomUUID } from "node:crypto";
+import { pgTable, text, boolean, bigint } from "drizzle-orm/pg-core";
 
 export const todos = pgTable("todos", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  userId: text("user_id").notNull(),
-  text: text("text").notNull(),
+  id: text("id").primaryKey().$defaultFn(() => randomUUID()),
+  userId: text("user_id"),
+  text: text("title").notNull(),
   completed: boolean("completed").notNull().default(false),
-  createdAt: timestamp("created_at", { withTimezone: true, mode: "date" })
+  createdAt: bigint("created_at", { mode: "number" })
     .notNull()
-    .defaultNow(),
+    .$defaultFn(() => Date.now()),
 });

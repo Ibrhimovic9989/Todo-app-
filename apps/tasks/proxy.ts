@@ -5,7 +5,7 @@ export default auth((req) => {
   const { nextUrl } = req;
   const isLoggedIn = !!req.auth;
   const isApiAuthRoute = nextUrl.pathname.startsWith("/api/auth");
-  const isPublicRoute = ["/signin", "/api/auth"].some((p) =>
+  const isPublicRoute = ["/signin", "/api/auth", "/api/health"].some((p) =>
     nextUrl.pathname.startsWith(p)
   );
 
