@@ -1,17 +1,11 @@
 {
-  "name": "tasks-monorepo",
+  "name": "landing",
   "version": "0.1.0",
   "private": true,
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
-    "dev:landing": "npm run dev --workspace=apps/landing",
-    "dev:tasks": "npm run dev --workspace=apps/tasks",
-    "dev": "npm run dev --workspace=apps/landing",
-    "build:landing": "npm run build --workspace=apps/landing",
-    "build:tasks": "npm run build --workspace=apps/tasks",
-    "build": "npm run build:landing && npm run build:tasks",
+    "dev": "next dev -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
     "lint": "eslint"
   },
   "dependencies": {
