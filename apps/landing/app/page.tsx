@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
+const TASKS_APP_URL =
+  process.env.NEXT_PUBLIC_TASKS_APP_URL || "http://localhost:3001";
+
 function Logo({ className }: { className?: string }) {
   return (
     <svg
@@ -140,7 +143,7 @@ export default function LandingPage() {
             Tasks
           </Link>
           <Link
-            href="http://localhost:3001"
+            href={TASKS_APP_URL}
             className="rounded-full border border-zinc-200 bg-white/80 px-4 py-2 text-xs font-medium backdrop-blur-md transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/60 dark:hover:border-zinc-700"
           >
             Enter
@@ -401,7 +404,7 @@ export default function LandingPage() {
             style={{ transitionDelay: "0.8s" }}
           >
             <Link
-              href="http://localhost:3001"
+              href={TASKS_APP_URL}
               className="group inline-flex items-center gap-3 rounded-full border border-zinc-900 bg-zinc-900 px-10 py-5 text-sm font-medium text-white transition-all duration-300 hover:gap-5 hover:bg-zinc-800 dark:border-zinc-100 dark:bg-zinc-100 dark:text-zinc-900 dark:hover:bg-zinc-200"
             >
               Begin
