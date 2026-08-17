@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 
 const TASKS_APP_URL =
-  process.env.NEXT_PUBLIC_TASKS_APP_URL || "http://localhost:3001";
+  process.env.NEXT_PUBLIC_TASKS_APP_URL || "https://tasks-seven-omega.vercel.app";
 
 function Logo({ className }: { className?: string }) {
   return (
