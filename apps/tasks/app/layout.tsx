@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { LoadingProviders } from "./providers";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,8 +32,9 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${inter.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-zinc-900 transition-colors duration-300 dark:bg-zinc-950 dark:text-zinc-50">
+      <body className="min-h-full flex flex-col bg-background text-foreground transition-colors duration-300">
         <LoadingProviders>{children}</LoadingProviders>
+        <Toaster position="bottom-center" richColors closeButton />
       </body>
     </html>
   );
